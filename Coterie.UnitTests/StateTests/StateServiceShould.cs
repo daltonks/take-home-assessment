@@ -1,17 +1,18 @@
 ﻿using Coterie.Services.States;
-using Moq;
 using NUnit.Framework;
 
 namespace Coterie.UnitTests.StateTests
 {
-    public class StateServiceShould
+    public class StateServiceShould : TestsBase
     {
         private IStateService _stateService;
         
-        [OneTimeSetUp]
-        public void OneTimeSetup()
+        [SetUp]
+        public void SetUp()
         {
-            
+            _stateService = new StateService(DbContext);
         }
+        
+        
     }
 }

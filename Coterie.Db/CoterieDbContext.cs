@@ -33,6 +33,12 @@ namespace Coterie.Db
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             modelBuilder.Entity<State>(entity => {
+                entity.HasData(
+                    new State("FL", "FLORIDA", 1.2m), 
+                    new State("OH", "OHIO", 1), 
+                    new State("TX", "TEXAS", 0.943m)
+                );
+                
                 entity.HasKey(e => e.ShortName);
                 entity.HasIndex(e => e.LongName);
                 entity.Property(e => e.LongName).IsRequired();
