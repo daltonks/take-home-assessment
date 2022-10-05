@@ -2,15 +2,15 @@
 
 namespace Coterie.Db.Tables
 {
-    public class StateRow
+    public class State
     {
         public string ShortName { get; set; }
         public string LongName { get; set; }
         public decimal PriceFactor { get; set; }
 
-        public State ToModel()
+        public StateModel ToModel()
         {
-            return new State(ShortName, LongName, PriceFactor);
+            return new StateModel(ShortName, LongName, PriceFactor);
         }
     }
 }

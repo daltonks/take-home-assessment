@@ -16,7 +16,7 @@ namespace Coterie.Services.States
             _dbContext = dbContext;
         }
 
-        public async Task<State> GetAsync(string shortOrLongName)
+        public async Task<StateModel> GetAsync(string shortOrLongName)
         {
             return await _dbContext.States.Where(
                 e => e.ShortName == shortOrLongName || e.LongName == shortOrLongName

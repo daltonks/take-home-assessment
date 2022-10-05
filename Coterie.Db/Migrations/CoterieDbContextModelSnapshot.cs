@@ -15,7 +15,7 @@ namespace Coterie.Db.Migrations
             modelBuilder
                 .HasAnnotation("ProductVersion", "5.0.17");
 
-            modelBuilder.Entity("Coterie.Db.Tables.StateRow", b =>
+            modelBuilder.Entity("Coterie.Db.Tables.State", b =>
                 {
                     b.Property<string>("ShortName")
                         .HasColumnType("TEXT");

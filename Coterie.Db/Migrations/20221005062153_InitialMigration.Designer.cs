@@ -8,7 +8,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Coterie.Db.Migrations
 {
     [DbContext(typeof(CoterieDbContext))]
-    [Migration("20221005061712_InitialMigration")]
+    [Migration("20221005062153_InitialMigration")]
     partial class InitialMigration
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -17,7 +17,7 @@ namespace Coterie.Db.Migrations
             modelBuilder
                 .HasAnnotation("ProductVersion", "5.0.17");
 
-            modelBuilder.Entity("Coterie.Db.Tables.StateRow", b =>
+            modelBuilder.Entity("Coterie.Db.Tables.State", b =>
                 {
                     b.Property<string>("ShortName")
                         .HasColumnType("TEXT");

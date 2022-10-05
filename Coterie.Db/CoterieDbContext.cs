@@ -28,11 +28,11 @@ namespace Coterie.Db
             
         }
         
-        public DbSet<StateRow> States { get; set; }
+        public DbSet<State> States { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            modelBuilder.Entity<StateRow>(entity => {
+            modelBuilder.Entity<State>(entity => {
                 entity.HasKey(e => e.ShortName);
                 entity.HasIndex(e => e.LongName);
                 entity.Property(e => e.LongName).IsRequired();

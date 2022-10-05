@@ -1,8 +1,8 @@
 ﻿namespace Coterie.Domain.States
 {
-    public class State
+    public class StateModel
     {
-        public State(string shortName, string longName, decimal priceFactor)
+        public StateModel(string shortName, string longName, decimal priceFactor)
         {
             ShortName = shortName;
             LongName = longName;
