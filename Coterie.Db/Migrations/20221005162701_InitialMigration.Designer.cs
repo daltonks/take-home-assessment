@@ -8,14 +8,44 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Coterie.Db.Migrations
 {
     [DbContext(typeof(CoterieDbContext))]
-    [Migration("20221005064230_StateHasDataMigration")]
-    partial class StateHasDataMigration
+    [Migration("20221005162701_InitialMigration")]
+    partial class InitialMigration
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
                 .HasAnnotation("ProductVersion", "5.0.17");
+
+            modelBuilder.Entity("Coterie.Db.Tables.Business", b =>
+                {
+                    b.Property<string>("Name")
+                        .HasColumnType("TEXT");
+
+                    b.Property<decimal>("PriceFactor")
+                        .HasColumnType("TEXT");
+
+                    b.HasKey("Name");
+
+                    b.ToTable("Businesses");
+
+                    b.HasData(
+                        new
+                        {
+                            Name = "Architect",
+                            PriceFactor = 1m
+                        },
+                        new
+                        {
+                            Name = "Plumber",
+                            PriceFactor = 0.5m
+                        },
+                        new
+                        {
+                            Name = "Programmer",
+                            PriceFactor = 1.25m
+                        });
+                });
 
             modelBuilder.Entity("Coterie.Db.Tables.State", b =>
                 {
@@ -39,19 +69,19 @@ namespace Coterie.Db.Migrations
                         new
                         {
                             ShortName = "FL",
-                            LongName = "FLORIDA",
+                            LongName = "Florida",
                             PriceFactor = 1.2m
                         },
                         new
                         {
                             ShortName = "OH",
-                            LongName = "OHIO",
+                            LongName = "Ohio",
                             PriceFactor = 1m
                         },
                         new
                         {
                             ShortName = "TX",
-                            LongName = "TEXAS",
+                            LongName = "Texas",
                             PriceFactor = 0.943m
                         });
                 });

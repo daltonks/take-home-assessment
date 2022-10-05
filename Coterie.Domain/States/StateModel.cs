@@ -2,6 +2,8 @@
 {
     public class StateModel
     {
+        public StateModel() { }
+        
         public StateModel(string shortName, string longName, decimal priceFactor)
         {
             ShortName = shortName;
@@ -9,8 +11,8 @@
             PriceFactor = priceFactor;
         }
         
-        public string ShortName { get; }
-        public string LongName { get; }
-        public decimal PriceFactor { get; }
+        public string ShortName { get; set; }
+        public string LongName { get; set; }
+        public decimal PriceFactor { get; set; }
     }
 }

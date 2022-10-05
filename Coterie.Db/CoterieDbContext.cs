@@ -28,15 +28,27 @@ namespace Coterie.Db
             
         }
         
+        public DbSet<Business> Businesses { get; set; }
         public DbSet<State> States { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
+            modelBuilder.Entity<Business>(entity =>
+            {
+                entity.HasData(
+                    new Business("Architect", 1),
+                    new Business("Plumber", 0.5m),
+                    new Business("Programmer", 1.25m)
+                );
+
+                entity.HasKey(e => e.Name);
+            });
+            
             modelBuilder.Entity<State>(entity => {
                 entity.HasData(
-                    new State("FL", "FLORIDA", 1.2m), 
-                    new State("OH", "OHIO", 1), 
-                    new State("TX", "TEXAS", 0.943m)
+                    new State("FL", "Florida", 1.2m), 
+                    new State("OH", "Ohio", 1), 
+                    new State("TX", "Texas", 0.943m)
                 );
                 
                 entity.HasKey(e => e.ShortName);

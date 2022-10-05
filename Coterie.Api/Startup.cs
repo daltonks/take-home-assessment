@@ -1,5 +1,6 @@
 using Coterie.Api.Middleware;
 using Coterie.Db;
+using Coterie.Services.Businesses;
 using Coterie.Services.States;
 using Coterie.Services.Tests;
 using Microsoft.AspNetCore.Builder;
@@ -45,6 +46,7 @@ namespace Coterie.Api
                     builder
                 )
             );
+            services.AddScoped<IBusinessService, BusinessService>();
             services.AddScoped<IStateService, StateService>();
             services.AddScoped<ITestService, TestService>();
         }
