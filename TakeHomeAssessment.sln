@@ -8,6 +8,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Coterie.Domain", "Coterie.D
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Coterie.Services", "Coterie.Services\Coterie.Services.csproj", "{629C87F8-B9B4-4947-81AA-B82F3658F6EF}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Coterie.Db", "Coterie.Db\Coterie.Db.csproj", "{8504545E-2732-4BBD-90FE-294DA4DBE65F}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -30,5 +32,9 @@ Global
 		{629C87F8-B9B4-4947-81AA-B82F3658F6EF}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{629C87F8-B9B4-4947-81AA-B82F3658F6EF}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{629C87F8-B9B4-4947-81AA-B82F3658F6EF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8504545E-2732-4BBD-90FE-294DA4DBE65F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8504545E-2732-4BBD-90FE-294DA4DBE65F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8504545E-2732-4BBD-90FE-294DA4DBE65F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8504545E-2732-4BBD-90FE-294DA4DBE65F}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal
