@@ -1,4 +1,5 @@
 ﻿using System;
+using System.IO;
 using Coterie.Db;
 using Coterie.Services.Businesses;
 using Coterie.Services.States;
@@ -7,16 +8,17 @@ using NUnit.Framework;
 
 namespace Coterie.UnitTests
 {
-    public class InMemoryDbTestsBase
+    public class TestsBase
     {
         protected IBusinessService BusinessService { get; private set; }
         protected IStateService StateService { get; private set; }
+        private readonly string _dbPath = Guid.NewGuid().ToString();
         private CoterieDbContext _dbContext;
 
         [SetUp]
         public void SetUp()
         {
-            _dbContext = CoterieDbContext.CreateSqliteContext("Data Source=:memory:");
+            _dbContext = CoterieDbContext.CreateSqliteContext($"Filename={_dbPath}");
             _dbContext.Database.Migrate();
             
             BusinessService = new BusinessService(_dbContext);
@@ -27,6 +29,7 @@ namespace Coterie.UnitTests
         public virtual void TearDown()
         {
             _dbContext.Dispose();
+            File.Delete(_dbPath);
         }
     }
 }
