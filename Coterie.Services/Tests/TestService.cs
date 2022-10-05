@@ -1,10 +1,9 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using Coterie.Api.Interfaces;
-using Coterie.Api.Models.Responses;
+using Coterie.Domain.WeatherForecasts;
 
-namespace Coterie.Api.Services
+namespace Coterie.Services.Tests
 {
     public class TestService : ITestService
     {

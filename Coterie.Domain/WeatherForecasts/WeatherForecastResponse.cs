@@ -1,6 +1,6 @@
 using System;
 
-namespace Coterie.Api.Models.Responses
+namespace Coterie.Domain.WeatherForecasts
 {
     public class WeatherForecastResponse
     {

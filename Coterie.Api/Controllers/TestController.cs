@@ -1,7 +1,8 @@
 ﻿using System.Linq;
-using Coterie.Api.Interfaces;
-using Coterie.Api.Models.Requests;
 using Coterie.Api.Models.Responses;
+using Coterie.Domain.Tests;
+using Coterie.Domain.WeatherForecasts;
+using Coterie.Services.Tests;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Coterie.Api.Controllers

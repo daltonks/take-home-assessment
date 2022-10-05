@@ -1,6 +1,5 @@
-using Coterie.Api.ExceptionHelpers;
-using Coterie.Api.Interfaces;
-using Coterie.Api.Services;
+using Coterie.Api.Middleware;
+using Coterie.Services.Tests;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;

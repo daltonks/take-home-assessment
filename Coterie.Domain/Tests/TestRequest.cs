@@ -1,4 +1,4 @@
-namespace Coterie.Api.Models.Requests
+namespace Coterie.Domain.Tests
 {
     public class TestRequest
     {

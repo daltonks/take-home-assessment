@@ -1,7 +1,7 @@
-using Coterie.Api.Services;
+using Coterie.Services.Tests;
 using NUnit.Framework;
 
-namespace Coterie.UnitTests
+namespace Coterie.UnitTests.ServiceTests
 {
     /* Sample service setup and teardown is provided
     For more info - https://docs.nunit.org/articles/nunit/writing-tests/attributes/setup.html */

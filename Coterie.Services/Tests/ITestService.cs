@@ -1,7 +1,7 @@
 using System.Collections.Generic;
-using Coterie.Api.Models.Responses;
+using Coterie.Domain.WeatherForecasts;
 
-namespace Coterie.Api.Interfaces
+namespace Coterie.Services.Tests
 {
     public interface ITestService
     {
