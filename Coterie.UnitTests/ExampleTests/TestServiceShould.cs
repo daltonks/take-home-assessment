@@ -2,7 +2,7 @@ using System;
 using System.Linq;
 using NUnit.Framework;
 
-namespace Coterie.UnitTests.ServiceTests
+namespace Coterie.UnitTests.ExampleTests
 {
     public class Tests : TestServiceTestsBase
     {
