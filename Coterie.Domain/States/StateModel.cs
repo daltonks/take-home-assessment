@@ -27,12 +27,14 @@ namespace Coterie.Domain.States
         
         private bool Equals(StateModel other)
         {
-            return ShortName == other.ShortName && LongName == other.LongName && PriceFactor == other.PriceFactor;
+            return ShortName?.ToUpper() == other.ShortName?.ToUpper() && 
+                   LongName?.ToUpper() == other.LongName?.ToUpper() && 
+                   PriceFactor == other.PriceFactor;
         }
 
         public override int GetHashCode()
         {
-            return HashCode.Combine(ShortName, LongName, PriceFactor);
+            return HashCode.Combine(ShortName?.ToUpper(), LongName?.ToUpper(), PriceFactor);
         }
     }
 }

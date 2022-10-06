@@ -30,17 +30,17 @@ namespace Coterie.Db.Migrations
                     b.HasData(
                         new
                         {
-                            Name = "Architect",
+                            Name = "ARCHITECT",
                             PriceFactor = 1m
                         },
                         new
                         {
-                            Name = "Plumber",
+                            Name = "PLUMBER",
                             PriceFactor = 0.5m
                         },
                         new
                         {
-                            Name = "Programmer",
+                            Name = "PROGRAMMER",
                             PriceFactor = 1.25m
                         });
                 });
@@ -67,19 +67,19 @@ namespace Coterie.Db.Migrations
                         new
                         {
                             ShortName = "FL",
-                            LongName = "Florida",
+                            LongName = "FLORIDA",
                             PriceFactor = 1.2m
                         },
                         new
                         {
                             ShortName = "OH",
-                            LongName = "Ohio",
+                            LongName = "OHIO",
                             PriceFactor = 1m
                         },
                         new
                         {
                             ShortName = "TX",
-                            LongName = "Texas",
+                            LongName = "TEXAS",
                             PriceFactor = 0.943m
                         });
                 });

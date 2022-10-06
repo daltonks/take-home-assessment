@@ -34,32 +34,32 @@ namespace Coterie.Db.Migrations
             migrationBuilder.InsertData(
                 table: "Businesses",
                 columns: new[] { "Name", "PriceFactor" },
-                values: new object[] { "Architect", 1m });
+                values: new object[] { "ARCHITECT", 1m });
 
             migrationBuilder.InsertData(
                 table: "Businesses",
                 columns: new[] { "Name", "PriceFactor" },
-                values: new object[] { "Plumber", 0.5m });
+                values: new object[] { "PLUMBER", 0.5m });
 
             migrationBuilder.InsertData(
                 table: "Businesses",
                 columns: new[] { "Name", "PriceFactor" },
-                values: new object[] { "Programmer", 1.25m });
+                values: new object[] { "PROGRAMMER", 1.25m });
 
             migrationBuilder.InsertData(
                 table: "States",
                 columns: new[] { "ShortName", "LongName", "PriceFactor" },
-                values: new object[] { "FL", "Florida", 1.2m });
+                values: new object[] { "FL", "FLORIDA", 1.2m });
 
             migrationBuilder.InsertData(
                 table: "States",
                 columns: new[] { "ShortName", "LongName", "PriceFactor" },
-                values: new object[] { "OH", "Ohio", 1m });
+                values: new object[] { "OH", "OHIO", 1m });
 
             migrationBuilder.InsertData(
                 table: "States",
                 columns: new[] { "ShortName", "LongName", "PriceFactor" },
-                values: new object[] { "TX", "Texas", 0.943m });
+                values: new object[] { "TX", "TEXAS", 0.943m });
 
             migrationBuilder.CreateIndex(
                 name: "IX_States_LongName",

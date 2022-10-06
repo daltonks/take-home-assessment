@@ -17,6 +17,12 @@ namespace Coterie.Services.States
 
         public async Task<StateModel> GetAsync(string shortOrLongName)
         {
+            if (string.IsNullOrWhiteSpace(shortOrLongName))
+            {
+                return null;
+            }
+            
+            shortOrLongName = shortOrLongName.ToUpper();
             return await _dbContext.States.Where(
                 e => e.ShortName == shortOrLongName || e.LongName == shortOrLongName
             )

@@ -17,8 +17,13 @@ namespace Coterie.Services.Businesses
 
         public async Task<BusinessModel> GetAsync(string name)
         {
+            if (string.IsNullOrWhiteSpace(name))
+            {
+                return null;
+            }
+            
             return await _dbContext.Businesses.Where(
-                e => e.Name == name
+                e => e.Name == name.ToUpper()
             )
             .Select(e => e.ToModel())
             .FirstOrDefaultAsync();

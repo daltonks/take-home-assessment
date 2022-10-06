@@ -25,12 +25,12 @@ namespace Coterie.Domain.Businesses
         
         private bool Equals(BusinessModel other)
         {
-            return Name == other.Name && PriceFactor == other.PriceFactor;
+            return Name?.ToUpper() == other.Name?.ToUpper() && PriceFactor == other.PriceFactor;
         }
 
         public override int GetHashCode()
         {
-            return HashCode.Combine(Name, PriceFactor);
+            return HashCode.Combine(Name?.ToUpper(), PriceFactor);
         }
     }
 }

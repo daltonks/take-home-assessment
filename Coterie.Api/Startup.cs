@@ -1,8 +1,8 @@
 using Coterie.Api.Middleware;
 using Coterie.Db;
 using Coterie.Services.Businesses;
+using Coterie.Services.Quotes;
 using Coterie.Services.States;
-using Coterie.Services.Tests;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.EntityFrameworkCore;
@@ -47,8 +47,8 @@ namespace Coterie.Api
                 )
             );
             services.AddScoped<IBusinessService, BusinessService>();
+            services.AddScoped<IQuoteService, QuoteService>();
             services.AddScoped<IStateService, StateService>();
-            services.AddScoped<ITestService, TestService>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

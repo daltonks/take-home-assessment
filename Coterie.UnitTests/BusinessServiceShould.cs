@@ -1,38 +1,41 @@
 ﻿using System.Threading.Tasks;
 using Coterie.Domain.Businesses;
 using Coterie.Domain.States;
+using Coterie.UnitTests.Base;
 using NUnit.Framework;
 
 namespace Coterie.UnitTests
 {
     public class BusinessServiceShould : TestsBase
     {
-        [Test]
-        public async Task ReturnDataOnProperBusinesses()
+        private static readonly TestCaseData[] BusinessNameTestCases = 
+        {
+            // Invalid businesses
+            new ("FakeBusiness", null),
+            new (null, null),
+            new ("", null),
+            new (" ", null),
+            
+            // Valid businesses
+            new ("Architect", new BusinessModel("Architect", 1)),
+            new ("architect", new BusinessModel("Architect", 1)),
+            new ("ARCHITECT", new BusinessModel("Architect", 1)),
+            new ("Plumber", new BusinessModel("Plumber", 0.5m)),
+            new ("plumber", new BusinessModel("Plumber", 0.5m)),
+            new ("PLUMBER", new BusinessModel("Plumber", 0.5m)),
+            new ("Programmer", new BusinessModel("Programmer", 1.25m)),
+            new ("programmer", new BusinessModel("Programmer", 1.25m)),
+            new ("PROGRAMMER", new BusinessModel("Programmer", 1.25m))
+        };
+        
+        [TestCaseSource(nameof(BusinessNameTestCases))]
+        public async Task ReturnExpectedData(string businessName, BusinessModel expectedBusiness)
         {
             // Act
-            var architect = await BusinessService.GetAsync("Architect");
-            var plumber = await BusinessService.GetAsync("Plumber");
-            var programmer = await BusinessService.GetAsync("Programmer");
+            var business = await BusinessService.GetAsync(businessName);
             
             // Assert
-            Assert.AreEqual(architect, new BusinessModel("Architect", 1));
-            Assert.AreEqual(plumber, new BusinessModel("Plumber", 0.5m));
-            Assert.AreEqual(programmer, new BusinessModel("Programmer", 1.25m));
-        }
-
-        [Test]
-        public async Task ReturnNullOnInvalidBusinesses()
-        {
-            // Act
-            var fakeBusiness = await BusinessService.GetAsync("FakeBusiness");
-            var nullStringBusiness = await BusinessService.GetAsync(null);
-            var whitespaceBusiness = await BusinessService.GetAsync(" ");
-            
-            // Assert
-            Assert.IsNull(fakeBusiness);
-            Assert.IsNull(nullStringBusiness);
-            Assert.IsNull(whitespaceBusiness);
+            Assert.AreEqual(business, expectedBusiness);
         }
     }
 }

@@ -1,51 +1,42 @@
 ﻿using System.Threading.Tasks;
 using Coterie.Domain.States;
+using Coterie.UnitTests.Base;
 using NUnit.Framework;
 
 namespace Coterie.UnitTests
 {
     public class StateServiceShould : TestsBase
     {
-        [Test]
-        public async Task ReturnDataOnShortNames()
+        private static readonly TestCaseData[] StateNameTestCases =
         {
-            // Act
-            var ohio = await StateService.GetAsync("OH");
-            var florida = await StateService.GetAsync("FL");
-            var texas = await StateService.GetAsync("TX");
+            // Invalid names
+            new("FakeState", null),
+            new(null, null),
+            new("", null),
+            new(" ", null),
             
-            // Assert
-            Assert.AreEqual(ohio, new StateModel("OH", "Ohio", 1));
-            Assert.AreEqual(florida, new StateModel("FL", "Florida", 1.2m));
-            Assert.AreEqual(texas, new StateModel("TX", "Texas", 0.943m));
-        }
+            // Short names
+            new("OH", new StateModel("OH", "Ohio", 1)),
+            new("FL", new StateModel("FL", "Florida", 1.2m)),
+            new("TX", new StateModel("TX", "Texas", 0.943m)),
+            
+            // Long names
+            new("Ohio", new StateModel("OH", "Ohio", 1)),
+            new("Florida", new StateModel("FL", "Florida", 1.2m)),
+            new("Texas", new StateModel("TX", "Texas", 0.943m)),
+            new("OHIO", new StateModel("OH", "Ohio", 1)),
+            new("FLORIDA", new StateModel("FL", "Florida", 1.2m)),
+            new("TEXAS", new StateModel("TX", "Texas", 0.943m))
+        };
         
-        [Test]
-        public async Task ReturnDataOnLongNames()
+        [TestCaseSource(nameof(StateNameTestCases))]
+        public async Task ReturnExpectedData(string shortName, StateModel expectedState)
         {
             // Act
-            var ohio = await StateService.GetAsync("Ohio");
-            var florida = await StateService.GetAsync("Florida");
-            var texas = await StateService.GetAsync("Texas");
+            var state = await StateService.GetAsync(shortName);
             
             // Assert
-            Assert.AreEqual(ohio, new StateModel("OH", "Ohio", 1));
-            Assert.AreEqual(florida, new StateModel("FL", "Florida", 1.2m));
-            Assert.AreEqual(texas, new StateModel("TX", "Texas", 0.943m));
-        }
-        
-        [Test]
-        public async Task ReturnNullOnInvalidNames()
-        {
-            // Act
-            var fakeState = await StateService.GetAsync("FakeState");
-            var nullStringState = await StateService.GetAsync(null);
-            var whitespaceState = await StateService.GetAsync(" ");
-            
-            // Assert
-            Assert.IsNull(fakeState);
-            Assert.IsNull(nullStringState);
-            Assert.IsNull(whitespaceState);
+            Assert.AreEqual(state, expectedState);
         }
     }
 }
