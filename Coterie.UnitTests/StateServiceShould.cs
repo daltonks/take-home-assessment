@@ -7,7 +7,7 @@ namespace Coterie.UnitTests
     public class StateServiceShould : TestsBase
     {
         [Test]
-        public async Task WorkWithShortNames()
+        public async Task ReturnDataOnShortNames()
         {
             // Act
             var ohio = await StateService.GetAsync("OH");
@@ -21,7 +21,7 @@ namespace Coterie.UnitTests
         }
         
         [Test]
-        public async Task WorkWithLongNames()
+        public async Task ReturnDataOnLongNames()
         {
             // Act
             var ohio = await StateService.GetAsync("Ohio");
@@ -35,9 +35,9 @@ namespace Coterie.UnitTests
         }
         
         [Test]
-        public async Task WorkWithInvalidNames()
+        public async Task ReturnNullOnInvalidNames()
         {
-            // Arrange
+            // Act
             var fakeState = await StateService.GetAsync("FakeState");
             var nullStringState = await StateService.GetAsync(null);
             var whitespaceState = await StateService.GetAsync(" ");
