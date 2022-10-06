@@ -1,6 +1,7 @@
 ﻿using System.Threading.Tasks;
 using Coterie.Domain.Quotes;
 using Coterie.Services.Quotes;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Coterie.Api.Controllers
@@ -19,7 +20,12 @@ namespace Coterie.Api.Controllers
         [HttpPost]
         public async Task<QuoteResponse> Get(QuoteRequest request)
         {
-            return await _quoteService.GetAsync(request);
+            var response = await _quoteService.GetAsync(request);
+            if (!response.IsSuccessful)
+            {
+                Response.StatusCode = StatusCodes.Status400BadRequest;
+            }
+            return response;
         }
     }
 }
