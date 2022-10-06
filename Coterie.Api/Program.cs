@@ -1,3 +1,5 @@
+using System.Threading.Tasks;
+using Coterie.Db;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Hosting;
 

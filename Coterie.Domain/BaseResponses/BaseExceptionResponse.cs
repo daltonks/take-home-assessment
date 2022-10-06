@@ -1,6 +1,6 @@
 using System;
 
-namespace Coterie.Api.Models.Responses
+namespace Coterie.Domain.BaseResponses
 {
     public class BaseExceptionResponse
     {
